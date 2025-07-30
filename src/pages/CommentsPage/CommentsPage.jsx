@@ -1,8 +1,8 @@
-import { Comment } from '../Comment/Comment'
+import { Comment } from '../../components/Comment/Comment'
 
-import style from './CommentsList.module.css'
+import style from './CommentsPage.module.css'
 
-const CommentsList = ({comments}) => {
+const CommentsPage = ({comments}) => {
   return (
     <div className={style.container}>
         {comments.map(({postId, id, email, body, name}) =>(
@@ -12,4 +12,4 @@ const CommentsList = ({comments}) => {
   )
 }
 
-export default CommentsList
+export default CommentsPage

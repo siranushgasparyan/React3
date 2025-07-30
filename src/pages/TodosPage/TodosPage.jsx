@@ -1,7 +1,7 @@
-import style from './TodosList.module.css'
-import { Todo } from '../Todo/Todo'
+import style from './TodosPage.module.css'
+import { Todo } from '../../components/Todo/Todo'
 
-const TodosList = ({todos}) => {
+const TodosPage = ({todos}) => {
   return (
     <div className={style.container}>
         {todos.map(({id, userId, title, completed}) => (
@@ -11,4 +11,4 @@ const TodosList = ({todos}) => {
   )
 }
 
-export default TodosList
+export default TodosPage
