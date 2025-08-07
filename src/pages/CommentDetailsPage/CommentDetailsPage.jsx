@@ -1,10 +1,20 @@
-import style from './CommentDetailsPage.module.css'
 import { useParams } from 'react-router-dom'
+import { baseURL } from '../../db/db'
+import { useState, useEffect } from 'react'
 
-const CommentDetailsPage = ({comments}) => {
+import style from './CommentDetailsPage.module.css'
+
+const CommentDetailsPage = () => {
+  const [comment, setComment] = useState([])
   const {id} = useParams()
-  const comment = comments.find((comment) => comment.id === +id)
-  
+
+  useEffect(() => {
+     fetch(`${baseURL}/comments/${id}`)
+      .then((res) => res.json())
+      .then((data) => setComment(data))
+      .catch((err) => console.log(err))
+  }, [id])
+ 
   return (
     <div className={style.container}>
         <h2>{comment.name}</h2>

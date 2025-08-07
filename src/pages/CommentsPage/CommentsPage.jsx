@@ -1,11 +1,21 @@
+import { useEffect, useState } from 'react'
 import { Comment } from '../../components/Comment/Comment'
+import { baseURL } from '../../db/db'
 
 import style from './CommentsPage.module.css'
 
-const CommentsPage = ({comments}) => {
+const CommentsPage = () => {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch(`${baseURL}/comments`)
+      .then((res) => res.json())
+      .then((data) => setData(data))
+  }, [])
+
   return (
     <div className={style.container}>
-        {comments.map(({postId, id, email, body, name}) =>(
+        {data.map(({postId, id, email, body, name}) =>(
             <Comment key={id} id={id} postId={postId} body={body} email={email} name={name} />
         ))}
     </div>

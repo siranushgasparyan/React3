@@ -1,21 +1,24 @@
-import  { PostsList, UsersList, AlbomsList, NotFound, Layout, Home, CommentDetailsPage, CommentsPage, TodoDetailsPage, TodosPage} from './components/index'
+import  { PostsPage, PostDetailsPage, UsersPage, UserDetailsPage, AlbomsPage, AlbomDetailsPage, NotFound, Layout, Home, CommentDetailsPage, CommentsPage, TodoDetailsPage, TodosPage} from './components/index'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
-function App({ navLinks, comments, todos, posts, users, alboms }) {
+function App({ navLinks }) {
 
   return (
     <>
       <Routes>
         <Route path='/' element={<Layout navLinks={navLinks}/>}>
           <Route index element={<Home />}/>
-          <Route path='/comments' element={<CommentsPage comments={comments}/>}/>
-          <Route path='/comments/:id' element={<CommentDetailsPage comments={comments} />}/>
-          <Route path='/todos/' element={<TodosPage todos={todos} />}/>
-          <Route path='/todos/:id' element={<TodoDetailsPage todos={todos} />}/>
-          <Route path='/posts' element= {<PostsList posts={posts}/>}/>
-          <Route path='/users' element={<UsersList users={users}/>}/>
-          <Route path='/alboms' element={<AlbomsList alboms={alboms}/>}/>
+          <Route path='/comments' element={<CommentsPage />}/>
+          <Route path='/comments/:id' element={<CommentDetailsPage />}/>
+          <Route path='/todos/' element={<TodosPage />}/>
+          <Route path='/todos/:id' element={<TodoDetailsPage />}/>
+          <Route path='/posts' element= {<PostsPage />}/>
+          <Route path='/posts/:id' element= {<PostDetailsPage />}/>
+          <Route path='/users' element={<UsersPage />}/>
+          <Route path='/users/:id' element={<UserDetailsPage />}/>
+          <Route path='/albums' element={<AlbomsPage />}/>
+          <Route path='/albums/:id' element={<AlbomDetailsPage />}/>
           <Route path='*' element={<NotFound/>}/>
         </Route>
       </Routes>

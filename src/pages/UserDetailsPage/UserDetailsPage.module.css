@@ -1,0 +1,11 @@
+.container {
+    padding: 150px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+    box-shadow: 1.5px 1.5px 15px rgba(0, 0, 0, 0.068);
+    max-width: 800px;
+    text-transform: capitalize;
+    margin: auto;
+}
